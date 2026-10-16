@@ -46,5 +46,5 @@ export async function downloadReport(req: CheckRequest): Promise<void> {
   a.href = url;
   a.download = name ?? "report.pdf";
   a.click();
-  URL.revokeObjectURL(url);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 }

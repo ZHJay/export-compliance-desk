@@ -59,7 +59,7 @@ export function CheckForm(props: { item: Item | null; onResult: (r: CheckResult)
           onChange={(e) => setCountry(e.target.value)}
           className="w-full rounded border border-gray-300 px-3 py-2"
         >
-          <option value="">请选择国家</option>
+          <option value="">请选择国家/地区</option>
           {countries.map((c) => (
             <option key={c.code} value={c.code}>
               {c.name_zh}
