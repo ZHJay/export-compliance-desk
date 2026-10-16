@@ -28,7 +28,8 @@ class Ruleset:
 def load_ruleset(data_dir: Path) -> Ruleset:
     raw = {f: (data_dir / f).read_bytes() for f in _DIGEST_FILES}
     meta = json.loads((data_dir / "meta.json").read_text(encoding="utf-8"))
-    digest = hashlib.sha256(b"".join(raw[f] for f in _DIGEST_FILES)).hexdigest()[:8]
+    # engine source is hashed too, so any change to the decision logic changes the report ID
+    digest = hashlib.sha256(b"".join(raw[f] for f in _DIGEST_FILES) + Path(__file__).read_bytes()).hexdigest()[:8]
     return Ruleset(
         items={i["eccn"]: i for i in json.loads(raw["ccl.json"])["items"]},
         countries=json.loads(raw["country_chart.json"])["countries"],
@@ -37,6 +38,7 @@ def load_ruleset(data_dir: Path) -> Ruleset:
         sources=meta["sources"],
         digest=digest,
     )
+
 
 _SUFFIXES = frozenset(["co", "company", "ltd", "limited", "inc", "incorporated", "corp", "corporation", "llc", "plc", "gmbh"])
 _SEVERITY = {"NLR": 0, "NEEDS_REVIEW": 1, "LICENSE_REQUIRED": 2}
@@ -73,6 +75,10 @@ def normalize_name(name: str) -> str:
     return "".join(w for w in words if w and w not in _SUFFIXES)
 
 
+def _latin(s: str) -> str:
+    return re.sub(r"[^0-9a-z]", "", normalize_name(s))
+
+
 def search_items(rs: Ruleset, q: str) -> list[dict]:
     q = q.strip().casefold()
     scored = []
@@ -105,20 +111,21 @@ def _chart_findings(item: dict, eccn: str, country: dict) -> list[Finding]:
                     f"{_CHART_CITE}（{c}）；15 CFR 774 Supp. 1（{eccn}）")
             for c in hits
         ]
-    if country["embargo"]:  # CU/IR/KP/SY chart rows are empty: eCFR defers to Part 746
+    if country["embargo"]:  # embargo line already decides the outcome for every embargoed destination; CU/IR/KP/SY chart rows are additionally empty (Part 746)
         return []
     cols = "、".join(item["controls"])
     return [Finding("country_chart", "NLR", f"{eccn} 的管制栏 {cols} 在{name}均未打 X", miss_cite)]
 
 
 def _entity_finding(rs: Ruleset, end_user: str) -> Finding:
-    key = normalize_name(end_user)
+    key = _latin(end_user)
     if not key:
-        return Finding("entity_list", "NEEDS_REVIEW", "最终用户名称无有效字符，无法筛查，需人工复核", _ENTITY_CITE)
+        return Finding("entity_list", "NEEDS_REVIEW",
+                       "最终用户名称不含可比对的英文字母或数字（实体清单仅有英文名称），无法筛查，需人工复核", _ENTITY_CITE)
     best, best_score, partial = None, 0.0, None
     for e in rs.entities:
         for n in [e["name"], *e["aliases"]]:
-            cand = normalize_name(n)
+            cand = _latin(n)
             short, long = sorted((key, cand), key=len)
             if partial is None and len(short) >= 4 and short in long:
                 partial = e
@@ -153,11 +160,11 @@ def check(rs: Ruleset, eccn: str, country: str, end_user: str | None) -> Result:
 
     findings: list[Finding] = []
     if c["embargo"]:
-        findings.append(Finding("embargo", "LICENSE_REQUIRED", f"{c['name_zh']}受全面禁运/制裁管制", c["embargo"]))
+        findings.append(Finding("embargo", "LICENSE_REQUIRED", f"{c['name_zh']}受 15 CFR 746 禁运/制裁管制", c["embargo"]))
     findings += _chart_findings(item, eccn, c)
     for sc in (item or {}).get("special_controls", []):
         findings.append(Finding("special_control", "NEEDS_REVIEW",
-                                f"{sc['reason']} 管制在国家表中无对应栏，需人工复核", sc["citation"]))
+                                f"{sc['reason']} 管制（{sc['citation']}）按条款所列条件适用、不按国家表栏位，本子集未编码，需人工复核", sc["citation"]))
     if end_user:
         findings.append(_entity_finding(rs, end_user))
     decision = max((f.decision for f in findings), key=_SEVERITY.__getitem__, default="NLR")

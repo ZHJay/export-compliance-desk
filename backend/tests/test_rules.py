@@ -118,12 +118,12 @@ def test_input_is_normalized():
 
 def test_chinese_end_user_warns_english_only():
     (f,) = by_rule(check(RS, "5A992", "JP", "华为"), "entity_list")
-    assert f.decision == "NLR" and "英文" in f.message
+    assert f.decision == "NEEDS_REVIEW" and "英文" in f.message
 
 
 def test_end_user_without_valid_chars_needs_review():
     (f,) = by_rule(check(RS, "5A992", "JP", "Co., Ltd."), "entity_list")
-    assert f.decision == "NEEDS_REVIEW"
+    assert f.decision == "NEEDS_REVIEW" and "英文" in f.message
 
 
 def test_unknown_eccn_raises():
@@ -183,3 +183,16 @@ def test_real_data_short_huawei_is_flagged():
     rs = load_ruleset(Path(__file__).resolve().parents[1] / "data")
     (f,) = by_rule(check(rs, "5A992", "JP", "Huawei"), "entity_list")
     assert f.decision == "NEEDS_REVIEW"
+
+
+def _real_entity(end_user):
+    rs = load_ruleset(Path(__file__).resolve().parents[1] / "data")
+    return by_rule(check(rs, "5A991", "JP", end_user), "entity_list")[0]
+
+
+def test_real_data_mixed_chinese_english_is_flagged():
+    assert _real_entity("华为 Huawei").decision == "NEEDS_REVIEW"
+
+
+def test_real_data_chinese_only_is_flagged():
+    assert _real_entity("华为技术有限公司").decision == "NEEDS_REVIEW"
