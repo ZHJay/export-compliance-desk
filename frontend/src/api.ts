@@ -38,11 +38,13 @@ export async function check(req: CheckRequest): Promise<CheckResult> {
 }
 
 export async function downloadReport(req: CheckRequest): Promise<void> {
-  const blob = await (await post("/api/report", req)).blob();
+  const res = await post("/api/report", req);
+  const name = /filename="?([^";]+)"?/.exec(res.headers.get("Content-Disposition") ?? "")?.[1];
+  const blob = await res.blob();
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = `compliance-report-${req.eccn}-${req.country}.pdf`;
+  a.download = name ?? "report.pdf";
   a.click();
   URL.revokeObjectURL(url);
 }
