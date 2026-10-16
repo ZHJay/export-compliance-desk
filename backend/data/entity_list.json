@@ -1,0 +1,422 @@
+{
+ "source_url": "https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-744/appendix-Supplement%20No.%204%20to%20Part%20744",
+ "retrieved": "2026-10-16",
+ "entities": [
+  {
+   "name": "Huawei Technologies Co., Ltd.",
+   "aliases": [
+    "Shenzhen Huawei Technologies",
+    "Huawei Technology"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR, see §§ 734.9(e) 1 and 744.11 of the EAR",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "84 FR 22963, 5/21/19. 84 FR 43495, 8/21/19. 85 FR 29853, 5/19/20. 85 FR 36720, 6/18/20. 85 FR 51603, 8/20/20. 86 FR 71559, 12/17/21. 87 FR 6026, 2/3/22. 87 FR 8182, 2/14/22. 87 FR 21012, 4/11/22. 87 FR 55250, 9/9/22."
+  },
+  {
+   "name": "HiSilicon Technologies Co., Ltd.",
+   "aliases": [
+    "HiSilicon"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR, see §§ 734.9(e) 1 and 744.11 of the EAR",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "84 FR 22963, 5/21/19. 85 FR 29852, 5/19/20. 85 FR 36720, 6/18/20. 85 FR 51603, 8/20/20. 87 FR 6026, 2/3/22. 87 FR 55250, 9/9/22."
+  },
+  {
+   "name": "Semiconductor Manufacturing International Corporation (SMIC)",
+   "aliases": [
+    "SMIC",
+    "Semiconductor Manufacturing International (Shanghai) Corporation",
+    "SMIC Shanghai"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR (See §§ 734.4(a)(9), 734.9(e)(3), and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial for all items to include items described in ECCN 3B001.a.4, .c, .d, f.1.b.2, .k to .p; 3B002.c, 3B993, or 3B994. Case-by-case for items designed for production of 200mm wafers destined to a 200mm wafer production facility",
+   "fr_citation": "85 FR 83420, 12/22/20. 89 FR 96836, 12/5/24."
+  },
+  {
+   "name": "Semiconductor Manufacturing International (Beijing) Corporation",
+   "aliases": [
+    "SMIC Beijing"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR (See §§ 734.4(a)(9), 734.9(e)(3), and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "85 FR 83420, 12/22/20. 89 FR 96836, 12/5/24."
+  },
+  {
+   "name": "Hangzhou Hikvision Digital Technology Co., Ltd.",
+   "aliases": [
+    "Hikvision"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Case-by-case review for ECCNs 1A004.c, 1A004.d, 1A995, 1A999.a, 1D003, 2A983, 2D983, and 2E983, and for EAR99 items described in the Note to ECCN 1A995; case-by-case review for items necessary to detect, identify and treat infectious disease; and presumption of denial for all other items subject to the EAR",
+   "fr_citation": "84 FR 54004, 10/9/19. 85 FR 34505, 6/5/20. 85 FR 44161, 7/22/20."
+  },
+  {
+   "name": "Sugon",
+   "aliases": [
+    "Dawning",
+    "Dawning Information Industry",
+    "Sugon Information Industry",
+    "Shuguang",
+    "Shuguang Information Industry",
+    "Zhongke Dawn"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(e) and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "84 FR 29373, 6/24/19. 87 FR 62202, 10/13/22."
+  },
+  {
+   "name": "Inspur Group Co., Ltd.",
+   "aliases": [
+    "Inspur Group",
+    "IGL"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(e)(2) and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "88 FR 13675, 3/6/23."
+  },
+  {
+   "name": "Yangtze Memory Technologies Co., Ltd.",
+   "aliases": [
+    "YMTC",
+    "Changjiang Storage Technology"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "87 FR 77508, 12/19/22."
+  },
+  {
+   "name": "Fujian Jinhua Integrated Circuit Company, Ltd.",
+   "aliases": [
+    "JHICC"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR (See §§ 734.4(a)(9), 734.9(e)(3), and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "83 FR 54521, 10/30/18. 89 FR 96836, 12/5/24."
+  },
+  {
+   "name": "Shanghai Micro Electronics Equipment (Group) Co., Ltd.",
+   "aliases": [
+    "SMEE",
+    "Shanghai Microelectronics Equipment Company"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "87 FR 77508, 12/19/22."
+  },
+  {
+   "name": "Tianjin Phytium Information Technology",
+   "aliases": [
+    "Phytium",
+    "Phytium Technology",
+    "Tianjin Feiteng Information Technology"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(e) and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "86 FR 18438, 4/9/21. 87 FR 62202, 10/13/22."
+  },
+  {
+   "name": "Sophgo Technologies Ltd.",
+   "aliases": [
+    "Beijing Sophgo",
+    "Sophgo",
+    "SOPHON"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR (See §§ 734.9(e)(2) and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "90 FR 4622, 1/16/25."
+  },
+  {
+   "name": "Cambricon Technologies Corporation Limited",
+   "aliases": [
+    "Cambrian",
+    "Cambricon",
+    "Zhongke Cambricon Technology"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(e)(2) and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "87 FR 77508, 12/19/22."
+  },
+  {
+   "name": "Moore Thread Intelligent Technology (Beijing) Co., Ltd.",
+   "aliases": [
+    "Moore Threads",
+    "Mo'er Xianchen"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(e)(2) and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "88 FR 71992, 10/19/23."
+  },
+  {
+   "name": "Loongson Technology",
+   "aliases": [
+    "Loongson Technology Corporation Limited",
+    "Loongson Zhongke Technology Co., Ltd",
+    "Loongson Zhongke",
+    "Godson Zhongke"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(e)(2) and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "88 FR 13675, 3/6/23."
+  },
+  {
+   "name": "Megvii Technology",
+   "aliases": [],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(e) and 744.11 of the EAR)",
+   "review_policy": "Case-by-case review for ECCNs 1A004.c, 1A004.d, 1A995, 1A999.a, 1D003, 2A983, 2D983, and 2E983, and for EAR99 items described in the Note to ECCN 1A995; case-by-case review for items necessary to detect, identify and treat infectious disease; and presumption of denial for all other items subject to the EAR",
+   "fr_citation": "84 FR 54004, 10/9/19. 85 FR 44159, 7/22/20. 87 FR 62202, 10/13/22."
+  },
+  {
+   "name": "Beijing Sensetime Technology Development Co., Ltd.",
+   "aliases": [
+    "Beijing Shangtang Technology Development Co., Ltd",
+    "Sense Time"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(e) and 744.11 of the EAR)",
+   "review_policy": "Case-by-case review for ECCNs 1A004.c, 1A004.d, 1A995, 1A999.a, 1D003, 2A983, 2D983, and 2E983, and for EAR99 items described in the Note to ECCN 1A995; case-by-case review for items necessary to detect, identify and treat infectious disease; and presumption of denial for all other items subject to the EAR",
+   "fr_citation": "84 FR 54004, 10/9/19. 85 FR 34505, 6/5/20. 85 FR 44159, 7/22/20. 87 FR 62202, 10/13/22."
+  },
+  {
+   "name": "Yitu Technologies",
+   "aliases": [],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(e) and 744.11 of the EAR)",
+   "review_policy": "Case-by-case review for ECCNs 1A004.c, 1A004.d, 1A995, 1A999.a, 1D003, 2A983, 2D983, and 2E983, and for EAR99 items described in the Note to ECCN 1A995; case-by-case review for items necessary to detect, identify and treat infectious disease; and presumption of denial for all other items subject to the EAR",
+   "fr_citation": "84 FR 54004, 10/9/19. 85 FR 44159, 7/22/20. 87 FR 62202, 10/13/22."
+  },
+  {
+   "name": "Dahua Technology",
+   "aliases": [],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(e) and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "84 FR 54004, 10/9/19. 85 FR 44159, 7/22/20. 87 FR 62202, 10/13/22."
+  },
+  {
+   "name": "DJI",
+   "aliases": [
+    "Shenzhen DJI Innovation Technology Co., Ltd",
+    "SZ DJI Technology Co., Ltd",
+    "Da-Jiang Innovations"
+   ],
+   "country": "CN",
+   "license_requirement": "All items subject to the EAR. (See § 744.11 of the EAR), except for EAR99-designated technology for the operation, maintenance, or repair of unmanned aerial vehicles (UAV) released to this entity by the operator of the UAV",
+   "review_policy": "Case-by-case review for items necessary to detect, identify and treat infectious disease; Presumption of denial for all other items subject to the EAR",
+   "fr_citation": "85 FR 83420, 12/22/20. 86 FR 29193, 6/1/21."
+  },
+  {
+   "name": "National University of Defense Technology (NUDT)",
+   "aliases": [
+    "NUDT",
+    "Central South CAD Center",
+    "Hunan Guofang Keji University"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(e) and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "80 FR 8527, 2/18/15. 84 FR 29373, 6/24/19, 87 FR 38925, 6/30/22. 87 FR 62202, 10/13/22."
+  },
+  {
+   "name": "Hefei Core Storage Electronic Ltd.",
+   "aliases": [
+    "HF CoreStorage",
+    "CoreStorage",
+    "Hefei Zhaoxin"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "87 FR 77508, 12/19/22."
+  },
+  {
+   "name": "China Electronics Technology Group Corporation 14th Research Institute (CETC 14)",
+   "aliases": [
+    "CETC 14",
+    "Nanjing Research Institute of Electronics Technology",
+    "NRIET"
+   ],
+   "country": "CN",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "83 FR 37427, 8/1/18."
+  },
+  {
+   "name": "Huawei Technologies Coöperatief U.A.",
+   "aliases": [],
+   "country": "NL",
+   "license_requirement": "For all items subject to the EAR, see §§ 734.9(e) 1 and 744.11 of the EAR",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "84 FR 22963, 5/21/19. 85 FR 29853, 5/19/20. 85 FR 36720, 6/18/20. 85 FR 51603, 8/20/20. 87 FR 6026, 2/3/22. 87 FR 55250, 9/9/22."
+  },
+  {
+   "name": "Sophgo Technologies Pte. Ltd.",
+   "aliases": [],
+   "country": "SG",
+   "license_requirement": "For all items subject to the EAR (See §§ 734.9(e)(2) and 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "90 FR 4622, 1/16/25."
+  },
+  {
+   "name": "Yangtze Memory Technologies (Japan) Inc.",
+   "aliases": [
+    "JYM Technology Co., Ltd"
+   ],
+   "country": "JP",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "87 FR 77508, 12/19/22."
+  },
+  {
+   "name": "Kaspersky Labs Limited",
+   "aliases": [
+    "Kaspersky Labs",
+    "Kaspersky Labs Ltd"
+   ],
+   "country": "GB",
+   "license_requirement": "For all items subject to the EAR (See § 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "89 FR 52363, 6/24/24."
+  },
+  {
+   "name": "Almaz-Antey Air Defense Concern Main System Design Bureau, JSC",
+   "aliases": [
+    "Almaz-Antey GSKB",
+    "Almaz-Antey MSDB"
+   ],
+   "country": "RU",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "79 FR 55612, 9/17/14."
+  },
+  {
+   "name": "Rostec (Russian Technologies State Corporation)",
+   "aliases": [
+    "Rostec",
+    "Russian Technologies State Corporation"
+   ],
+   "country": "RU",
+   "license_requirement": "All items subject to the EAR. (See §§ 734.9(g),3 746.8(a)(3), and 744.21(b) of the EAR)",
+   "review_policy": "Policy of denial for all items subject to the EAR apart from food and medicine designated as EAR99, which will be reviewed on a case-by-case basis. See §§ 746.8(b) and 744.21(e)",
+   "fr_citation": "87 FR 12240 3/3/22. 87 FR 34136, 6/6/22."
+  },
+  {
+   "name": "United Aircraft Corporation",
+   "aliases": [],
+   "country": "RU",
+   "license_requirement": "All items subject to the EAR. (See §§ 734.9(g),3 746.8(a)(3), and 744.21(b) of the EAR)",
+   "review_policy": "Policy of denial for all items subject to the EAR apart from food and medicine designated as EAR99, which will be reviewed on a case-by-case basis",
+   "fr_citation": "87 FR 12240, 3/3/22. 87 FR 34136, 6/6/22."
+  },
+  {
+   "name": "Kalashnikov Concern",
+   "aliases": [
+    "Concern Kalashnikov",
+    "JSC NPO Izhmash",
+    "OJSC Concern Kalashnikov"
+   ],
+   "country": "RU",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "79 FR 42455, 7/22/14."
+  },
+  {
+   "name": "Baikal Electronics",
+   "aliases": [],
+   "country": "RU",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Policy of denial",
+   "fr_citation": "87 FR 13143, 3/9/22."
+  },
+  {
+   "name": "MCST Lebedev",
+   "aliases": [
+    "Moscow Center of SPARC Technologies",
+    "ZAO Elbrus-MCST"
+   ],
+   "country": "RU",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Policy of denial",
+   "fr_citation": "87 FR 13143, 3/9/22."
+  },
+  {
+   "name": "Sukhoi Aviation JSC",
+   "aliases": [],
+   "country": "RU",
+   "license_requirement": "All items subject to the EAR. (See §§ 734.9(g),3 746.8(a)(3), and 744.21(b) of the EAR)",
+   "review_policy": "Policy of denial for all items subject to the EAR apart from food and medicine designated as EAR99, which will be reviewed on a case-by-case basis. See §§ 746.8(b) and 744.21(e)",
+   "fr_citation": "87 FR 12240, 3/3/22. 87 FR 34136, 6/6/22."
+  },
+  {
+   "name": "Tupolev JSC",
+   "aliases": [],
+   "country": "RU",
+   "license_requirement": "All items subject to the EAR. (See §§ 734.9(g),3 746.8(a)(3), and 744.21(b) of the EAR)",
+   "review_policy": "Policy of denial for all items subject to the EAR apart from food and medicine designated as EAR99, which will be reviewed on a case-by-case basis",
+   "fr_citation": "87 FR 12240, 3/3/22. 87 FR 34136, 6/6/22."
+  },
+  {
+   "name": "Ruselectronics JSC",
+   "aliases": [],
+   "country": "RU",
+   "license_requirement": "For all items subject to the EAR. (See §§ 734.9(g),3 744.21(b), and 746.8(a)(3) of the EAR)",
+   "review_policy": "Policy of denial for all items subject to the EAR apart from food and medicine designated as EAR99, which will be reviewed on a case-by-case basis. See §§ 746.8(b) and 744.21(e)",
+   "fr_citation": "87 FR 75174, 12/8/22."
+  },
+  {
+   "name": "Angstrem-M",
+   "aliases": [],
+   "country": "RU",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "81 FR 61601, 9/7/16."
+  },
+  {
+   "name": "Iran Air",
+   "aliases": [],
+   "country": "IR",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Case-by-Case review for licenses for the safety of civil aviation and the safe operation of aircraft; Presumption of Denial for all others",
+   "fr_citation": "85 FR 14796, 3/16/20."
+  },
+  {
+   "name": "Shahid Bakeri Industrial Group",
+   "aliases": [
+    "SBIG",
+    "Shahid Baheri Industries Group",
+    "Shahid Bagheri Industries Group"
+   ],
+   "country": "IR",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "72 FR 38008, 7/12/07. 77 FR 24590, 4/25/12."
+  },
+  {
+   "name": "Shahid Hemmat Industrial Group",
+   "aliases": [
+    "SHIG",
+    "Shahid Hemat Industrial Group",
+    "Hemmat Missile Industries Factory"
+   ],
+   "country": "IR",
+   "license_requirement": "For all items subject to the EAR. (See § 744.11 of the EAR)",
+   "review_policy": "Presumption of denial",
+   "fr_citation": "72 FR 38008, 7/12/07. 77 FR 24590, 4/25/12."
+  }
+ ]
+}

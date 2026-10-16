@@ -1,0 +1,354 @@
+{
+ "source_url": "https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-738/appendix-Supplement%20No.%201%20to%20Part%20738",
+ "retrieved": "2026-10-16",
+ "countries": {
+  "CN": {
+   "name_zh": "中国",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "CB3",
+    "NP1",
+    "NP2",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC3"
+   ],
+   "embargo": null
+  },
+  "TW": {
+   "name_zh": "台湾",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "CB3",
+    "NP1",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC3"
+   ],
+   "embargo": null
+  },
+  "JP": {
+   "name_zh": "日本",
+   "x_columns": [
+    "CB1",
+    "NS1",
+    "MT1",
+    "RS1"
+   ],
+   "embargo": null
+  },
+  "KR": {
+   "name_zh": "韩国",
+   "x_columns": [
+    "CB1",
+    "NS1",
+    "MT1",
+    "RS1"
+   ],
+   "embargo": null
+  },
+  "SG": {
+   "name_zh": "新加坡",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "NP1",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC3"
+   ],
+   "embargo": null
+  },
+  "MY": {
+   "name_zh": "马来西亚",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "NP1",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC3"
+   ],
+   "embargo": null
+  },
+  "VN": {
+   "name_zh": "越南",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "CB3",
+    "NP1",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC2"
+   ],
+   "embargo": null
+  },
+  "TH": {
+   "name_zh": "泰国",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "NP1",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC3"
+   ],
+   "embargo": null
+  },
+  "IN": {
+   "name_zh": "印度",
+   "x_columns": [
+    "CB1",
+    "NP1",
+    "NS1",
+    "MT1",
+    "RS1"
+   ],
+   "embargo": null
+  },
+  "PK": {
+   "name_zh": "巴基斯坦",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "CB3",
+    "NP1",
+    "NP2",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC3"
+   ],
+   "embargo": null
+  },
+  "AE": {
+   "name_zh": "阿联酋",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "CB3",
+    "NP1",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC3"
+   ],
+   "embargo": null
+  },
+  "SA": {
+   "name_zh": "沙特阿拉伯",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "CB3",
+    "NP1",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC3"
+   ],
+   "embargo": null
+  },
+  "IL": {
+   "name_zh": "以色列",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "CB3",
+    "NP1",
+    "NP2",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC3"
+   ],
+   "embargo": null
+  },
+  "TR": {
+   "name_zh": "土耳其",
+   "x_columns": [
+    "CB1",
+    "NS1",
+    "MT1",
+    "RS1"
+   ],
+   "embargo": null
+  },
+  "DE": {
+   "name_zh": "德国",
+   "x_columns": [
+    "CB1",
+    "NS1",
+    "MT1",
+    "RS1"
+   ],
+   "embargo": null
+  },
+  "FR": {
+   "name_zh": "法国",
+   "x_columns": [
+    "CB1",
+    "NS1",
+    "MT1",
+    "RS1"
+   ],
+   "embargo": null
+  },
+  "GB": {
+   "name_zh": "英国",
+   "x_columns": [
+    "CB1"
+   ],
+   "embargo": null
+  },
+  "NL": {
+   "name_zh": "荷兰",
+   "x_columns": [
+    "CB1",
+    "NS1",
+    "MT1",
+    "RS1"
+   ],
+   "embargo": null
+  },
+  "CA": {
+   "name_zh": "加拿大",
+   "x_columns": [
+    "CB1",
+    "FC1"
+   ],
+   "embargo": null
+  },
+  "AU": {
+   "name_zh": "澳大利亚",
+   "x_columns": [
+    "CB1"
+   ],
+   "embargo": null
+  },
+  "BR": {
+   "name_zh": "巴西",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "FC1",
+    "CC1",
+    "CC3"
+   ],
+   "embargo": null
+  },
+  "MX": {
+   "name_zh": "墨西哥",
+   "x_columns": [
+    "CB1",
+    "NS1",
+    "MT1",
+    "RS1",
+    "FC1",
+    "CC1",
+    "CC3"
+   ],
+   "embargo": null
+  },
+  "RU": {
+   "name_zh": "俄罗斯",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "CB3",
+    "NP1",
+    "NP2",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC2"
+   ],
+   "embargo": "15 CFR 746.8"
+  },
+  "BY": {
+   "name_zh": "白俄罗斯",
+   "x_columns": [
+    "CB1",
+    "CB2",
+    "CB3",
+    "NP1",
+    "NP2",
+    "NS1",
+    "NS2",
+    "MT1",
+    "RS1",
+    "RS2",
+    "CC1",
+    "CC2"
+   ],
+   "embargo": "15 CFR 746.8"
+  },
+  "IR": {
+   "name_zh": "伊朗",
+   "x_columns": [],
+   "embargo": "15 CFR 746.7"
+  },
+  "KP": {
+   "name_zh": "朝鲜",
+   "x_columns": [],
+   "embargo": "15 CFR 746.4"
+  },
+  "CU": {
+   "name_zh": "古巴",
+   "x_columns": [],
+   "embargo": "15 CFR 746.2"
+  },
+  "SY": {
+   "name_zh": "叙利亚",
+   "x_columns": [],
+   "embargo": "15 CFR 746.9"
+  }
+ }
+}
