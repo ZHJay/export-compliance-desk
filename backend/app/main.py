@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Annotated
 
 from fastapi import FastAPI, HTTPException, Response
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, StringConstraints
 
 from .report import TZ, render_pdf
@@ -55,3 +56,8 @@ def report_endpoint(req: CheckRequest) -> Response:
         media_type="application/pdf",
         headers={"Content-Disposition": f'attachment; filename="{name}"'},
     )
+
+
+STATIC_DIR = Path(__file__).parent.parent / "static"
+if STATIC_DIR.is_dir():  # absent in local dev/tests; present in the Docker image
+    app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="static")
