@@ -1,8 +1,16 @@
 import dataclasses
+from pathlib import Path
 
 import pytest
 
-from app.rules import CheckInput, Ruleset, check, normalize_name, search_items
+from app.rules import (
+    CheckInput,
+    Ruleset,
+    check,
+    load_ruleset,
+    normalize_name,
+    search_items,
+)
 
 RS = Ruleset(
     items={
@@ -43,7 +51,8 @@ def by_rule(r, rule):
     ("5A002", "JP", None, "NEEDS_REVIEW", {"country_chart", "special_control"}),
     ("5A992", "JP", "HUAWEI TECHNOLOGIES CO LTD", "LICENSE_REQUIRED", {"country_chart", "entity_list"}),
     ("5A992", "JP", "Huawei Technologis", "NEEDS_REVIEW", {"country_chart", "entity_list"}),
-    ("5A992", "JP", "Huawei Device", "NLR", {"country_chart", "entity_list"}),
+    ("5A992", "JP", "Huawei Device", "NEEDS_REVIEW", {"country_chart", "entity_list"}),
+    ("5A992", "JP", "Sony Group", "NLR", {"country_chart", "entity_list"}),
     ("5A002", "CN", "Huawei", "LICENSE_REQUIRED", {"country_chart", "special_control", "entity_list"}),
 ])
 def test_check_table(eccn, country, end_user, decision, expected):
@@ -150,3 +159,27 @@ def test_search_keyword():
 def test_search_blank_and_special_chars():
     assert [i["eccn"] for i in search_items(RS, "  ")] == ["3A001", "5A002", "5A992"]
     assert search_items(RS, "%(") == []
+
+
+RS_INSPUR = dataclasses.replace(RS, entities=[{
+    "name": "Inspur Group Co., Ltd.", "aliases": [], "country": "CN",
+    "license_requirement": "For all items subject to the EAR", "review_policy": "Presumption of denial",
+    "fr_citation": "88 FR 13675"}])
+
+
+def test_partial_name_needs_review():
+    (f,) = by_rule(check(RS_INSPUR, "5A992", "JP", "Inspur"), "entity_list")
+    assert f.decision == "NEEDS_REVIEW"
+    assert "部分重合" in f.message and "Inspur Group Co., Ltd." in f.message
+    assert "88 FR 13675" in f.citation
+
+
+def test_partial_name_too_short_is_ignored():
+    (f,) = by_rule(check(RS_INSPUR, "5A992", "JP", "Ins"), "entity_list")
+    assert f.decision == "NLR"
+
+
+def test_real_data_short_huawei_is_flagged():
+    rs = load_ruleset(Path(__file__).resolve().parents[1] / "data")
+    (f,) = by_rule(check(rs, "5A992", "JP", "Huawei"), "entity_list")
+    assert f.decision == "NEEDS_REVIEW"

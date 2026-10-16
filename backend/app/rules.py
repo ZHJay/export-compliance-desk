@@ -115,14 +115,17 @@ def _entity_finding(rs: Ruleset, end_user: str) -> Finding:
     key = normalize_name(end_user)
     if not key:
         return Finding("entity_list", "NEEDS_REVIEW", "最终用户名称无有效字符，无法筛查，需人工复核", _ENTITY_CITE)
-    best, best_score = None, 0.0
+    best, best_score, partial = None, 0.0, None
     for e in rs.entities:
         for n in [e["name"], *e["aliases"]]:
             cand = normalize_name(n)
+            short, long = sorted((key, cand), key=len)
+            if partial is None and len(short) >= 4 and short in long:
+                partial = e
             score = 1.0 if cand == key else difflib.SequenceMatcher(None, key, cand).ratio()
             if score > best_score:
                 best, best_score = e, score
-    # ponytail: 0.85 为经验阈值，基于字符序列；误报/漏报需要时换 rapidfuzz token_set_ratio + 人工标注集调参
+    # ponytail: 0.85 为经验阈值，基于字符序列；另有 ≥4 字符的互相包含兜底（短名如 Huawei）；误报/漏报需要时换 rapidfuzz token_set_ratio + 人工标注集调参
     if best and best_score >= 0.85:
         cite = f"15 CFR 744.11；15 CFR 744 Supp. 4（{best['fr_citation']}）"
         if best_score == 1.0:
@@ -131,6 +134,10 @@ def _entity_finding(rs: Ruleset, end_user: str) -> Finding:
             return Finding("entity_list", "LICENSE_REQUIRED", msg, cite)
         msg = f"最终用户与实体清单条目「{best['name']}」相似度 {best_score:.2f}，疑似命中，需人工复核"
         return Finding("entity_list", "NEEDS_REVIEW", msg, cite)
+    if partial:
+        msg = f"最终用户与实体清单条目「{partial['name']}」部分重合，疑似命中，需人工复核"
+        return Finding("entity_list", "NEEDS_REVIEW", msg,
+                       f"15 CFR 744.11；15 CFR 744 Supp. 4（{partial['fr_citation']}）")
     return Finding("entity_list", "NLR", "未在实体清单子集中命中（仅比对英文名称及别名）", _ENTITY_CITE)
 
 
