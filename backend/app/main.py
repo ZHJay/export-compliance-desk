@@ -1,9 +1,11 @@
+from datetime import datetime
 from pathlib import Path
 from typing import Annotated
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Response
 from pydantic import BaseModel, StringConstraints
 
+from .report import TZ, render_pdf
 from .rules import Result, check, load_ruleset, search_items
 
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -41,3 +43,15 @@ def countries() -> list[dict]:
 @app.post("/api/check", response_model=Result)
 def check_endpoint(req: CheckRequest) -> Result:
     return run_check(req)
+
+
+@app.post("/api/report")
+def report_endpoint(req: CheckRequest) -> Response:
+    result = run_check(req)
+    now = datetime.now(TZ)
+    name = f"report-{result.input.eccn}-{result.input.country}-{now:%Y%m%d}.pdf"
+    return Response(
+        render_pdf(result, now),
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{name}"'},
+    )

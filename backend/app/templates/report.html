@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>出口合规初筛报告</title>
+<style>
+  @page { size: A4; margin: 20mm 16mm; @bottom-center { content: "第 " counter(page) " / " counter(pages) " 页"; font-size: 9pt; color: #666; } }
+  body { font-family: "Noto Sans CJK SC", "PingFang SC", sans-serif; font-size: 10.5pt; color: #222; }
+  h1 { font-size: 20pt; margin: 0 0 8pt; }
+  .meta { color: #555; font-size: 9.5pt; line-height: 1.6; margin-bottom: 14pt; }
+  .meta div { word-break: break-all; }
+  .decision { font-size: 28pt; font-weight: bold; margin: 8pt 0 14pt; }
+  .LICENSE_REQUIRED { color: #c62828; }
+  .NEEDS_REVIEW { color: #b26a00; }
+  .NLR { color: #2e7d32; }
+  h2 { font-size: 13pt; margin: 14pt 0 6pt; }
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  th, td { border: 1px solid #bbb; padding: 4pt 6pt; text-align: left; vertical-align: top; word-break: break-all; }
+  th { background: #f0f0f0; }
+  .disclaimer { margin-top: 20pt; padding-top: 8pt; border-top: 1px solid #bbb; color: #555; font-size: 9.5pt; }
+</style>
+</head>
+<body>
+<h1>出口合规初筛报告</h1>
+<div class="meta">
+  <div>报告编号：{{ report_id }}</div>
+  <div>生成时间（Asia/Shanghai）：{{ generated_at }}</div>
+  <div>规则集版本（数据整理日期）：{{ r.ruleset_version }} · 摘要 {{ r.ruleset_digest }}</div>
+</div>
+<h2>查询输入</h2>
+<table>
+  <tr><th style="width:25%">ECCN</th><td>{{ r.input.eccn }}</td></tr>
+  <tr><th>目的国</th><td>{{ r.input.country }}</td></tr>
+  <tr><th>最终用户</th><td>{{ r.input.end_user or "（未填写）" }}</td></tr>
+</table>
+<h2>结论</h2>
+<div class="decision {{ r.decision }}">{{ decision_label }}</div>
+<h2>依据</h2>
+<table>
+  <colgroup><col style="width:14%"><col style="width:16%"><col style="width:40%"><col style="width:30%"></colgroup>
+  <tr><th>规则</th><th>结论</th><th>说明</th><th>条款出处</th></tr>
+  {% for f in r.findings %}
+  <tr>
+    <td>{{ rule_label[f.rule] }}</td>
+    <td class="{{ f.decision }}">{{ decision_labels[f.decision] }}</td>
+    <td>{{ f.message }}</td>
+    <td>{{ f.citation }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<div class="disclaimer">{{ disclaimer }}</div>
+</body>
+</html>
