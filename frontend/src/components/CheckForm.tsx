@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ApiError, check, getCountries } from "../api";
 import type { CheckResult, Country, Item } from "../types";
 
@@ -9,6 +9,10 @@ export function CheckForm(props: { item: Item | null; onResult: (r: CheckResult)
   const [endUser, setEndUser] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const currentEccn = useRef(item?.eccn);
+  useEffect(() => {
+    currentEccn.current = item?.eccn;
+  }, [item]);
 
   useEffect(() => {
     getCountries()
@@ -23,7 +27,9 @@ export function CheckForm(props: { item: Item | null; onResult: (r: CheckResult)
     setError(null);
     try {
       const eu = endUser.trim();
-      onResult(await check({ eccn: item.eccn, country, end_user: eu || undefined }));
+      const r = await check({ eccn: item.eccn, country, end_user: eu || undefined });
+      // drop a late response if the user switched items while it was in flight
+      if (r.input.eccn === currentEccn.current) onResult(r);
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "判定失败");
     } finally {
