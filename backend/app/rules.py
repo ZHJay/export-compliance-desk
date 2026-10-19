@@ -70,13 +70,20 @@ class Result:
     input: CheckInput
 
 
+def _words(name: str) -> list[str]:
+    return [w for w in re.split(r"[^\w]+", name.casefold()) if w and w not in _SUFFIXES]
+
+
 def normalize_name(name: str) -> str:
-    words = re.split(r"[^\w]+", name.casefold())
-    return "".join(w for w in words if w and w not in _SUFFIXES)
+    return "".join(_words(name))
 
 
 def _latin(s: str) -> str:
     return re.sub(r"[^0-9a-z]", "", normalize_name(s))
+
+
+def _latin_words(s: str) -> set[str]:
+    return {w for w in (re.sub(r"[^0-9a-z]", "", w) for w in _words(s)) if w}
 
 
 def search_items(rs: Ruleset, q: str) -> list[dict]:
@@ -122,17 +129,20 @@ def _entity_finding(rs: Ruleset, end_user: str) -> Finding:
     if not key:
         return Finding("entity_list", "NEEDS_REVIEW",
                        "最终用户名称不含可比对的英文字母或数字（实体清单仅有英文名称），无法筛查，需人工复核", _ENTITY_CITE)
+    key_words = _latin_words(end_user)
     best, best_score, partial = None, 0.0, None
     for e in rs.entities:
         for n in [e["name"], *e["aliases"]]:
             cand = _latin(n)
             short, long = sorted((key, cand), key=len)
-            if partial is None and len(short) >= 4 and short in long:
+            # substring needs >= 4 chars; shorter names (DJI, ZTE) count only as a whole word of the other name
+            overlap = (len(short) >= 4 and short in long) or cand in key_words or key in _latin_words(n)
+            if partial is None and overlap:
                 partial = e
             score = 1.0 if cand == key else difflib.SequenceMatcher(None, key, cand).ratio()
             if score > best_score:
                 best, best_score = e, score
-    # ponytail: 0.85 为经验阈值，基于字符序列；另有 ≥4 字符的互相包含兜底（短名如 Huawei）；误报/漏报需要时换 rapidfuzz token_set_ratio + 人工标注集调参
+    # ponytail: 0.85 为经验阈值，基于字符序列；另有互相包含兜底（≥4 字符按子串，如 Huawei；更短按整词，如 DJI）；误报/漏报需要时换 rapidfuzz token_set_ratio + 人工标注集调参
     if best and best_score >= 0.85:
         cite = f"15 CFR 744.11；15 CFR 744 Supp. 4（{best['fr_citation']}）"
         if best_score == 1.0:

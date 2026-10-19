@@ -179,6 +179,24 @@ def test_partial_name_too_short_is_ignored():
     assert f.decision == "NLR"
 
 
+def _short_entity(name, end_user):
+    rs = dataclasses.replace(RS_INSPUR, entities=[{**RS_INSPUR.entities[0], "name": name}])
+    return by_rule(check(rs, "5A992", "JP", end_user), "entity_list")[0]
+
+
+def test_short_entity_name_as_word_needs_review():
+    f = _short_entity("DJI", "DJI Drones")
+    assert f.decision == "NEEDS_REVIEW" and "部分重合" in f.message
+
+
+def test_short_end_user_as_word_needs_review():
+    assert _short_entity("ZTE Kangxun Telecom Co., Ltd.", "ZTE").decision == "NEEDS_REVIEW"
+
+
+def test_short_name_inside_a_word_is_ignored():
+    assert _short_entity("DJI", "Djibouti Telecom").decision == "NLR"
+
+
 def test_real_data_short_huawei_is_flagged():
     rs = load_ruleset(Path(__file__).resolve().parents[1] / "data")
     (f,) = by_rule(check(rs, "5A992", "JP", "Huawei"), "entity_list")
@@ -192,6 +210,10 @@ def _real_entity(end_user):
 
 def test_real_data_mixed_chinese_english_is_flagged():
     assert _real_entity("华为 Huawei").decision == "NEEDS_REVIEW"
+
+
+def test_real_data_dji_drones_is_flagged():
+    assert _real_entity("DJI Drones").decision == "NEEDS_REVIEW"
 
 
 def test_real_data_chinese_only_is_flagged():
