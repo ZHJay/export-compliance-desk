@@ -23,11 +23,26 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "3A001.z.1.a, z.2.a, z.3.a, z.4.a"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "3A001.z.1.b, z.2.b, z.3.b, z.4.b"
     }
    ]
   },
@@ -80,16 +95,40 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "3A090.a"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "3A090.b"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(i)(B)"
+     "citation": "15 CFR 742.6(a)(6)(i)(B)",
+     "to": [
+      "D:5"
+     ],
+     "part": "3A090.c"
     }
+   ],
+   "parts": [
+    "3A090.a",
+    "3A090.b",
+    "3A090.c"
    ]
   },
   {
@@ -216,7 +255,10 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(12)"
+     "citation": "15 CFR 742.6(a)(12)",
+     "to": [
+      "PK"
+     ]
     }
    ]
   },
@@ -233,11 +275,17 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6"
+     "citation": "15 CFR 742.6(a)(12)",
+     "to": [
+      "PK"
+     ]
     },
     {
      "reason": "AT",
-     "citation": "15 CFR 742.19"
+     "citation": "15 CFR 742.19",
+     "to": [
+      "KP"
+     ]
     }
    ]
   },
@@ -258,19 +306,35 @@
    "special_controls": [
     {
      "reason": "NS",
-     "citation": "15 CFR 742.4(a)(5)"
+     "citation": "15 CFR 742.4(a)(5)",
+     "to": [
+      "*"
+     ],
+     "part": "3B001.c.1.a, c.1.c, q"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(10)"
+     "citation": "15 CFR 742.6(a)(10)",
+     "to": [
+      "*"
+     ],
+     "part": "3B001.c.1.a, c.1.c, q"
     },
     {
      "reason": "NS",
-     "citation": "15 CFR 742.4(a)(4)"
+     "citation": "15 CFR 742.4(a)(4)",
+     "to": [
+      "D:5"
+     ],
+     "part": "3B001.a.4, c, d, f.1, f.5, f.6, k–n, p.2, p.4, r"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)"
+     "citation": "15 CFR 742.6(a)(6)(i)(A)",
+     "to": [
+      "D:5"
+     ],
+     "part": "3B001.a.4, c, d, f.1, f.5, f.6, k–n, p.2, p.4, r"
     }
    ]
   },
@@ -291,11 +355,19 @@
    "special_controls": [
     {
      "reason": "NS",
-     "citation": "15 CFR 742.4(a)(4)"
+     "citation": "15 CFR 742.4(a)(4)",
+     "to": [
+      "D:5"
+     ],
+     "part": "3B002.c"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)"
+     "citation": "15 CFR 742.6(a)(6)(i)(A)",
+     "to": [
+      "D:5"
+     ],
+     "part": "3B002.c"
     }
    ]
   },
@@ -432,23 +504,50 @@
    "special_controls": [
     {
      "reason": "NS",
-     "citation": "15 CFR 742.4(a)(5)"
+     "citation": "15 CFR 742.4(a)(5)",
+     "to": [
+      "*"
+     ],
+     "part": "3B001.q 用软件"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(10)"
+     "citation": "15 CFR 742.6(a)(10)",
+     "to": [
+      "*"
+     ],
+     "part": "3B001.q 用软件"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "3A001.z.*.a、3A090.a 用软件"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "3A001.z.*.b、3A090.b 用软件"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(i)"
+     "citation": "15 CFR 742.6(a)(6)(i)(B)",
+     "to": [
+      "D:5"
+     ],
+     "part": "3A090.c 用软件"
     }
    ]
   },
@@ -468,11 +567,19 @@
    "special_controls": [
     {
      "reason": "NS",
-     "citation": "15 CFR 742.4(a)(5)"
+     "citation": "15 CFR 742.4(a)(5)",
+     "to": [
+      "*"
+     ],
+     "part": "3B001.c.1.a、c.1.c 用软件"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(10)"
+     "citation": "15 CFR 742.6(a)(10)",
+     "to": [
+      "*"
+     ],
+     "part": "3B001.c.1.a、c.1.c 用软件"
     }
    ]
   },
@@ -507,19 +614,33 @@
    "special_controls": [
     {
      "reason": "NS",
-     "citation": "15 CFR 742.4(a)(4)"
+     "citation": "15 CFR 742.4(a)(4)",
+     "to": [
+      "D:5"
+     ]
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(i)"
+     "citation": "15 CFR 742.6(a)(6)(i)(A)",
+     "to": [
+      "D:5"
+     ]
     },
     {
      "reason": "NS",
-     "citation": "15 CFR 742.4(a)(5)"
+     "citation": "15 CFR 742.4(a)(5)",
+     "to": [
+      "*"
+     ],
+     "part": "3B001.c.1.a、c.1.c 用软件"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(10)"
+     "citation": "15 CFR 742.6(a)(10)",
+     "to": [
+      "*"
+     ],
+     "part": "3B001.c.1.a、c.1.c 用软件"
     }
    ]
   },
@@ -547,11 +668,34 @@
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "3A001.z.*.a、3A090.a 相关技术"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(i)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "3A001.z.*.b、3A090.b 相关技术"
+    },
+    {
+     "reason": "RS",
+     "citation": "15 CFR 742.6(a)(6)(i)(B)",
+     "to": [
+      "D:5"
+     ],
+     "part": "3A090.c 相关技术"
     }
    ]
   },
@@ -599,19 +743,33 @@
    "special_controls": [
     {
      "reason": "NS",
-     "citation": "15 CFR 742.4(a)(4)"
+     "citation": "15 CFR 742.4(a)(4)",
+     "to": [
+      "D:5"
+     ]
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(i)"
+     "citation": "15 CFR 742.6(a)(6)(i)(A)",
+     "to": [
+      "D:5"
+     ]
     },
     {
      "reason": "NS",
-     "citation": "15 CFR 742.4(a)(5)"
+     "citation": "15 CFR 742.4(a)(5)",
+     "to": [
+      "*"
+     ],
+     "part": "3B001.c.1.a、c.1.c 用技术"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(10)"
+     "citation": "15 CFR 742.6(a)(10)",
+     "to": [
+      "*"
+     ],
+     "part": "3B001.c.1.a、c.1.c 用技术"
     }
    ]
   },
@@ -656,11 +814,26 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "4A003.z.1.a, z.2.a"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "4A003.z.1.b, z.2.b"
     }
    ]
   },
@@ -681,11 +854,26 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "4A004.z.1"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "4A004.z.2"
     }
    ]
   },
@@ -706,11 +894,26 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "4A005.z.1"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "4A005.z.2"
     }
    ]
   },
@@ -730,12 +933,31 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "4A090.a"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "4A090.b"
     }
+   ],
+   "parts": [
+    "4A090.a",
+    "4A090.b"
    ]
   },
   {
@@ -787,11 +1009,26 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "4A003.z.*.a、4A004.z.1、4A005.z.1 用软件"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "4A003.z.*.b、4A004.z.2、4A005.z.2 用软件"
     }
    ]
   },
@@ -811,12 +1048,31 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "4A090.a 用软件"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "4A090.b 用软件"
     }
+   ],
+   "parts": [
+    "4A090.a 用软件",
+    "4A090.b 用软件"
    ]
   },
   {
@@ -867,11 +1123,26 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "4A003.z.*.a、4A004.z.1、4A005.z.1、4A090.a 相关技术"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "4A003.z.*.b、4A004.z.2、4A005.z.2、4A090.b 相关技术"
     }
    ]
   },
@@ -891,7 +1162,10 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(13)"
+     "citation": "15 CFR 742.6(a)(13)",
+     "to": [
+      "*"
+     ]
     }
    ]
   },
@@ -927,7 +1201,11 @@
    "special_controls": [
     {
      "reason": "SL",
-     "citation": "15 CFR 742.13"
+     "citation": "15 CFR 742.13",
+     "to": [
+      "*"
+     ],
+     "part": "5A001.f.1"
     }
    ]
   },
@@ -961,11 +1239,17 @@
    "special_controls": [
     {
      "reason": "SL",
-     "citation": "15 CFR 742.13"
+     "citation": "15 CFR 742.13",
+     "to": [
+      "*"
+     ]
     },
     {
      "reason": "AT",
-     "citation": "15 CFR 742.13"
+     "citation": "15 CFR 742.13",
+     "to": [
+      "*"
+     ]
     }
    ]
   },
@@ -1045,7 +1329,11 @@
    "special_controls": [
     {
      "reason": "SL",
-     "citation": "15 CFR 742.13"
+     "citation": "15 CFR 742.13",
+     "to": [
+      "*"
+     ],
+     "part": "5A001.f.1 相关软件"
     }
    ]
   },
@@ -1079,7 +1367,11 @@
    "special_controls": [
     {
      "reason": "SL",
-     "citation": "15 CFR 742.13"
+     "citation": "15 CFR 742.13",
+     "to": [
+      "*"
+     ],
+     "part": "5A001.f.1 相关技术"
     }
    ]
   },
@@ -1114,15 +1406,36 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "5A002.z.1.a–z.5.a"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "5A002.z.1.b–z.5.b"
     },
     {
      "reason": "EI",
-     "citation": "15 CFR 742.15"
+     "citation": "15 CFR 742.15",
+     "to": [
+      "*"
+     ],
+     "except": [
+      "CA"
+     ]
     }
    ]
   },
@@ -1142,11 +1455,26 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "5A992.z.1"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "5A992.z.2"
     }
    ]
   },
@@ -1183,15 +1511,36 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "5A004.z.1.a, z.2.a"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "5A004.z.1.b, z.2.b"
     },
     {
      "reason": "EI",
-     "citation": "15 CFR 742.15"
+     "citation": "15 CFR 742.15",
+     "to": [
+      "*"
+     ],
+     "except": [
+      "CA"
+     ]
     }
    ]
   },
@@ -1227,15 +1576,37 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "5D002.z.1.a–z.9.a"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "5D002.z.1.b–z.9.b"
     },
     {
      "reason": "EI",
-     "citation": "15 CFR 742.15"
+     "citation": "15 CFR 742.15",
+     "to": [
+      "*"
+     ],
+     "except": [
+      "CA"
+     ],
+     "part": "5D002.a.1, a.3, .b, c.1, c.3"
     }
    ]
   },
@@ -1255,11 +1626,26 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "5D992.z.1"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "5D992.z.2"
     }
    ]
   },
@@ -1280,15 +1666,37 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "5A002/5A004 .z.*.a 相关技术"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "5A002/5A004 .z.*.b 相关技术"
     },
     {
      "reason": "EI",
-     "citation": "15 CFR 742.15"
+     "citation": "15 CFR 742.15",
+     "to": [
+      "*"
+     ],
+     "except": [
+      "CA"
+     ],
+     "part": "5E002.a（EI 物项相关技术）、5E002.b"
     }
    ]
   },
@@ -1307,11 +1715,26 @@
    "special_controls": [
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(A)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(A)",
+     "to": [
+      "*"
+     ],
+     "part": "5A992.z.1、5D992.z.1 相关技术"
     },
     {
      "reason": "RS",
-     "citation": "15 CFR 742.6(a)(6)(iii)(B)"
+     "citation": "15 CFR 742.6(a)(6)(iii)(B)",
+     "to": [
+      "AE",
+      "D:1",
+      "D:4",
+      "D:5"
+     ],
+     "except": [
+      "A:5",
+      "A:6"
+     ],
+     "part": "5A992.z.2、5D992.z.2 相关技术"
     }
    ]
   }

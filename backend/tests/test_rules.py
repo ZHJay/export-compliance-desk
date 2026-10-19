@@ -233,3 +233,66 @@ def test_real_data_brand_with_extra_words_is_flagged(end_user):
 ])
 def test_real_data_generic_words_not_flagged(end_user):
     assert _real_entity(end_user).decision == "NLR"
+
+
+RS_SC = dataclasses.replace(RS, items={
+    "X1": {"eccn": "X1", "title": "x", "title_zh": "x", "keywords": [], "controls": [], "special_controls": [
+        {"reason": "EI", "citation": "EI-cite", "to": ["*"], "except": ["CA"]}]},
+    "X2": {"eccn": "X2", "title": "x", "title_zh": "x", "keywords": [], "controls": [], "parts": ["X2.a", "X2.b"],
+           "special_controls": [
+               {"reason": "RS", "citation": "A-cite", "to": ["*"], "part": "X2.a"},
+               {"reason": "RS", "citation": "B-cite", "to": ["AE", "D:1"], "except": ["A:5", "A:6"], "part": "X2.b"}]},
+}, countries={
+    "CN": {"name_zh": "中国", "x_columns": [], "embargo": None, "groups": ["D:1"]},
+    "CA": {"name_zh": "加拿大", "x_columns": [], "embargo": None, "groups": ["A:5"]},
+    "AE": {"name_zh": "阿联酋", "x_columns": [], "embargo": None, "groups": ["A:5"]},
+    "TW": {"name_zh": "中国台湾", "x_columns": [], "embargo": None, "groups": ["D:1", "A:6"]},
+})
+
+
+def _special_decisions(eccn, country):
+    r = check(RS_SC, eccn, country, None)
+    return r.decision, [f.decision for f in by_rule(r, "special_control")]
+
+
+@pytest.mark.parametrize("eccn,country,decision,lines", [
+    ("X1", "CN", "LICENSE_REQUIRED", ["LICENSE_REQUIRED"]),
+    ("X1", "CA", "NLR", ["NLR"]),                                         # excluded by country code
+    ("X2", "CN", "LICENSE_REQUIRED", ["LICENSE_REQUIRED", "LICENSE_REQUIRED"]),  # every listed part applies
+    ("X2", "AE", "LICENSE_REQUIRED", ["LICENSE_REQUIRED", "LICENSE_REQUIRED"]),  # named code beats A:5 exclusion
+    ("X2", "TW", "NEEDS_REVIEW", ["NEEDS_REVIEW", "NLR"]),               # D:1 but excluded by A:6
+    ("X2", "CA", "NEEDS_REVIEW", ["NEEDS_REVIEW", "NLR"]),               # only the worldwide part applies
+])
+def test_special_control_destination(eccn, country, decision, lines):
+    assert _special_decisions(eccn, country) == (decision, lines)
+
+
+def test_special_control_messages_name_part_and_country():
+    review, miss = by_rule(check(RS_SC, "X2", "TW", None), "special_control")
+    assert "X2.a" in review.message and "需确认" in review.message
+    assert "X2.b" in miss.message and "中国台湾" in miss.message and miss.citation == "B-cite"
+
+
+REAL_RS = load_ruleset(Path(__file__).resolve().parents[1] / "data")
+
+
+@pytest.mark.parametrize("eccn,country,decision", [
+    ("3A090", "CN", "LICENSE_REQUIRED"),  # .a worldwide, .b D:1/D:4/D:5, .c D:5: every sub-item needs a license
+    ("3A090", "JP", "NEEDS_REVIEW"),      # only 3A090.a (worldwide) applies
+    ("4A090", "VN", "LICENSE_REQUIRED"),  # VN is D:1 and not A:5/A:6
+    ("4A090", "IL", "NEEDS_REVIEW"),      # IL is D:4 but also A:6: only 4A090.a applies
+    ("5A002", "GB", "LICENSE_REQUIRED"),  # no chart hit, but EI covers every destination except Canada
+    ("5A002", "CA", "NEEDS_REVIEW"),      # EI exempts Canada; 5A002.z.*.a is still worldwide
+    ("5A980", "CA", "LICENSE_REQUIRED"),  # SL: all destinations including Canada
+    ("3A992", "PK", "LICENSE_REQUIRED"),  # 742.6(a)(12)
+    ("3A992", "JP", "NLR"),
+    ("3B002", "JP", "NLR"),               # 3B002.c is controlled only to Macau / D:5
+    ("4E091", "JP", "LICENSE_REQUIRED"),  # 742.6(a)(13): worldwide
+])
+def test_real_data_special_controls(eccn, country, decision):
+    assert check(REAL_RS, eccn, country, None).decision == decision
+
+
+def test_real_data_ei_exempts_canada():
+    (ei,) = [f for f in by_rule(check(REAL_RS, "5A002", "CA", None), "special_control") if f.message.startswith("EI")]
+    assert ei.decision == "NLR" and "加拿大" in ei.message

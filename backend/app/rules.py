@@ -131,6 +131,40 @@ def _chart_findings(item: dict, eccn: str, country: dict) -> list[Finding]:
     return [Finding("country_chart", "NLR", f"{eccn} 的管制栏 {cols} 在{name}均未打 X", miss_cite)]
 
 
+def _applies(sc: dict, code: str, country: dict) -> bool:
+    """Destination is in sc["to"] ("*", a country code or a Country Group) and not in sc["except"].
+    A code named outright beats the exclusion: 742.6(a)(6)(iii)(B) names the UAE, which is A:5."""
+    if code in sc["to"]:
+        return True
+    tags = {code, *country["groups"]}
+    return bool(({"*"} | tags) & set(sc["to"])) and not tags & set(sc.get("except", []))
+
+
+def _special_findings(item: dict, eccn: str, code: str, country: dict) -> list[Finding]:
+    scs = item.get("special_controls", [])
+    hit_parts = {sc.get("part") for sc in scs if "to" in sc and _applies(sc, code, country)}
+    # every sub-item listed in "parts" is controlled here, so whichever one it is, a license is needed (3A090 to China)
+    covered = bool(item.get("parts")) and set(item["parts"]) <= hit_parts
+    name, findings = country["name_zh"], []
+    for sc in scs:
+        what, part, cite = f"{sc['reason']} 管制（{sc['citation']}）", sc.get("part"), sc["citation"]
+        scope = f"{what}针对 {part}，" if part else what
+        if "to" not in sc:  # end-user or origin based (e.g. 742.6(a)(11)): not encodable by destination
+            findings.append(Finding("special_control", "NEEDS_REVIEW",
+                                    f"{what}按条款所列条件适用、不按国家表栏位，本子集未编码，需人工复核", cite))
+        elif not _applies(sc, code, country):
+            findings.append(Finding("special_control", "NLR", f"{scope}目的地条件不含{name}", cite))
+        elif not part:
+            findings.append(Finding("special_control", "LICENSE_REQUIRED", f"{what}的目的地条件包含{name}", cite))
+        elif covered:
+            findings.append(Finding("special_control", "LICENSE_REQUIRED",
+                                    f"{scope}目的地条件包含{name}；{eccn} 的各子项在{name}均需许可证", cite))
+        else:
+            findings.append(Finding("special_control", "NEEDS_REVIEW",
+                                    f"{scope}目的地条件包含{name}，需确认物项是否属该子项", cite))
+    return findings
+
+
 def _entity_finding(rs: Ruleset, end_user: str) -> Finding:
     key = _latin(end_user)
     if not key:
@@ -181,9 +215,7 @@ def check(rs: Ruleset, eccn: str, country: str, end_user: str | None) -> Result:
     if c["embargo"]:
         findings.append(Finding("embargo", "LICENSE_REQUIRED", f"{c['name_zh']}受 15 CFR 746 禁运/制裁管制", c["embargo"]))
     findings += _chart_findings(item, eccn, c)
-    for sc in (item or {}).get("special_controls", []):
-        findings.append(Finding("special_control", "NEEDS_REVIEW",
-                                f"{sc['reason']} 管制（{sc['citation']}）按条款所列条件适用、不按国家表栏位，本子集未编码，需人工复核", sc["citation"]))
+    findings += _special_findings(item or {}, eccn, country, c)
     if end_user:
         findings.append(_entity_finding(rs, end_user))
     decision = max((f.decision for f in findings), key=_SEVERITY.__getitem__, default="NLR")

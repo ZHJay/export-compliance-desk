@@ -18,6 +18,12 @@
     "CC1",
     "CC3"
    ],
+   "groups": [
+    "D:1",
+    "D:3",
+    "D:4",
+    "D:5"
+   ],
    "embargo": null
   },
   "TW": {
@@ -35,6 +41,10 @@
     "CC1",
     "CC3"
    ],
+   "groups": [
+    "A:6",
+    "D:3"
+   ],
    "embargo": null
   },
   "JP": {
@@ -45,6 +55,13 @@
     "MT1",
     "RS1"
    ],
+   "groups": [
+    "A:1",
+    "A:2",
+    "A:3",
+    "A:4",
+    "A:5"
+   ],
    "embargo": null
   },
   "KR": {
@@ -54,6 +71,13 @@
     "NS1",
     "MT1",
     "RS1"
+   ],
+   "groups": [
+    "A:1",
+    "A:2",
+    "A:3",
+    "A:4",
+    "A:5"
    ],
    "embargo": null
   },
@@ -71,6 +95,9 @@
     "CC1",
     "CC3"
    ],
+   "groups": [
+    "A:6"
+   ],
    "embargo": null
   },
   "MY": {
@@ -87,6 +114,7 @@
     "CC1",
     "CC3"
    ],
+   "groups": [],
    "embargo": null
   },
   "VN": {
@@ -104,6 +132,10 @@
     "CC1",
     "CC2"
    ],
+   "groups": [
+    "D:1",
+    "D:3"
+   ],
    "embargo": null
   },
   "TH": {
@@ -120,6 +152,7 @@
     "CC1",
     "CC3"
    ],
+   "groups": [],
    "embargo": null
   },
   "IN": {
@@ -130,6 +163,12 @@
     "NS1",
     "MT1",
     "RS1"
+   ],
+   "groups": [
+    "A:1",
+    "A:2",
+    "A:3",
+    "A:5"
    ],
    "embargo": null
   },
@@ -149,6 +188,11 @@
     "CC1",
     "CC3"
    ],
+   "groups": [
+    "D:2",
+    "D:3",
+    "D:4"
+   ],
    "embargo": null
   },
   "AE": {
@@ -166,6 +210,9 @@
     "CC1",
     "CC3"
    ],
+   "groups": [
+    "A:5"
+   ],
    "embargo": null
   },
   "SA": {
@@ -182,6 +229,10 @@
     "RS2",
     "CC1",
     "CC3"
+   ],
+   "groups": [
+    "D:3",
+    "D:4"
    ],
    "embargo": null
   },
@@ -201,6 +252,12 @@
     "CC1",
     "CC3"
    ],
+   "groups": [
+    "A:6",
+    "D:2",
+    "D:3",
+    "D:4"
+   ],
    "embargo": null
   },
   "TR": {
@@ -210,6 +267,13 @@
     "NS1",
     "MT1",
     "RS1"
+   ],
+   "groups": [
+    "A:1",
+    "A:2",
+    "A:3",
+    "A:4",
+    "A:5"
    ],
    "embargo": null
   },
@@ -221,6 +285,13 @@
     "MT1",
     "RS1"
    ],
+   "groups": [
+    "A:1",
+    "A:2",
+    "A:3",
+    "A:4",
+    "A:5"
+   ],
    "embargo": null
   },
   "FR": {
@@ -231,12 +302,26 @@
     "MT1",
     "RS1"
    ],
+   "groups": [
+    "A:1",
+    "A:2",
+    "A:3",
+    "A:4",
+    "A:5"
+   ],
    "embargo": null
   },
   "GB": {
    "name_zh": "英国",
    "x_columns": [
     "CB1"
+   ],
+   "groups": [
+    "A:1",
+    "A:2",
+    "A:3",
+    "A:4",
+    "A:5"
    ],
    "embargo": null
   },
@@ -248,6 +333,13 @@
     "MT1",
     "RS1"
    ],
+   "groups": [
+    "A:1",
+    "A:2",
+    "A:3",
+    "A:4",
+    "A:5"
+   ],
    "embargo": null
   },
   "CA": {
@@ -256,12 +348,26 @@
     "CB1",
     "FC1"
    ],
+   "groups": [
+    "A:1",
+    "A:2",
+    "A:3",
+    "A:4",
+    "A:5"
+   ],
    "embargo": null
   },
   "AU": {
    "name_zh": "澳大利亚",
    "x_columns": [
     "CB1"
+   ],
+   "groups": [
+    "A:1",
+    "A:2",
+    "A:3",
+    "A:4",
+    "A:5"
    ],
    "embargo": null
   },
@@ -279,6 +385,10 @@
     "CC1",
     "CC3"
    ],
+   "groups": [
+    "A:2",
+    "A:4"
+   ],
    "embargo": null
   },
   "MX": {
@@ -291,6 +401,12 @@
     "FC1",
     "CC1",
     "CC3"
+   ],
+   "groups": [
+    "A:1",
+    "A:3",
+    "A:4",
+    "A:6"
    ],
    "embargo": null
   },
@@ -310,6 +426,13 @@
     "CC1",
     "CC2"
    ],
+   "groups": [
+    "D:1",
+    "D:2",
+    "D:3",
+    "D:4",
+    "D:5"
+   ],
    "embargo": "15 CFR 746.8"
   },
   "BY": {
@@ -328,27 +451,62 @@
     "CC1",
     "CC2"
    ],
+   "groups": [
+    "D:1",
+    "D:2",
+    "D:3",
+    "D:4",
+    "D:5"
+   ],
    "embargo": "15 CFR 746.8"
   },
   "IR": {
    "name_zh": "伊朗",
    "x_columns": [],
+   "groups": [
+    "D:2",
+    "D:3",
+    "D:4",
+    "D:5",
+    "E:1"
+   ],
    "embargo": "15 CFR 746.7"
   },
   "KP": {
    "name_zh": "朝鲜",
    "x_columns": [],
+   "groups": [
+    "D:1",
+    "D:2",
+    "D:3",
+    "D:4",
+    "D:5",
+    "E:1"
+   ],
    "embargo": "15 CFR 746.4"
   },
   "CU": {
    "name_zh": "古巴",
    "x_columns": [],
+   "groups": [
+    "D:2",
+    "D:3",
+    "D:5",
+    "E:2"
+   ],
    "embargo": "15 CFR 746.2"
   },
   "SY": {
    "name_zh": "叙利亚",
    "x_columns": [],
+   "groups": [
+    "D:3",
+    "D:4",
+    "D:5",
+    "E:1"
+   ],
    "embargo": "15 CFR 746.9"
   }
- }
+ },
+ "groups_source_url": "https://www.ecfr.gov/current/title-15/subtitle-B/chapter-VII/subchapter-C/part-740/appendix-Supplement%20No.%201%20to%20Part%20740"
 }

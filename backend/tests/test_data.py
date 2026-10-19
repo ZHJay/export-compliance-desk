@@ -57,3 +57,23 @@ def test_digest_changes_with_data(tmp_path):
     p = tmp_path / "d" / "ccl.json"
     p.write_bytes(p.read_bytes() + b" ")
     assert load_ruleset(tmp_path / "d").digest != rs.digest
+
+
+GROUPS = {f"A:{i}" for i in range(1, 7)} | {f"D:{i}" for i in range(1, 6)} | {"E:1", "E:2"}
+
+
+def test_country_groups_known():
+    for code, c in rs.countries.items():
+        assert set(c["groups"]) <= GROUPS, code
+
+
+def test_special_control_destinations_known():
+    tokens = {"*"} | GROUPS | rs.countries.keys()
+    for eccn, item in rs.items.items():
+        for sc in item["special_controls"]:
+            assert set(sc.get("to", [])) | set(sc.get("except", [])) <= tokens, eccn
+
+
+def test_item_parts_are_special_control_parts():
+    for eccn, item in rs.items.items():
+        assert set(item.get("parts", [])) <= {sc.get("part") for sc in item["special_controls"] if "to" in sc}, eccn
