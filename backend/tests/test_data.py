@@ -14,6 +14,7 @@ rs = load_ruleset(DATA)
 def test_loads_and_digest():
     assert re.fullmatch(r"[0-9a-f]{8}", rs.digest)
     assert rs.version
+    assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", rs.ecfr_issue_date)
     assert rs.sources
 
 

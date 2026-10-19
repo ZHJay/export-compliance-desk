@@ -31,7 +31,7 @@ RS = Ruleset(
     entities=[{"name": "Huawei Technologies Co., Ltd.", "aliases": ["Huawei"], "country": "CN",
                "license_requirement": "For all items subject to the EAR", "review_policy": "Presumption of denial",
                "fr_citation": "84 FR 22961"}],
-    version="test", sources=[], digest="deadbeef",
+    version="test", ecfr_issue_date="test", sources=[], digest="deadbeef",
 )
 
 

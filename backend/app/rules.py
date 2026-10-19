@@ -21,6 +21,7 @@ class Ruleset:
     countries: dict[str, dict]
     entities: list[dict]
     version: str
+    ecfr_issue_date: str
     sources: list[str]
     digest: str
 
@@ -35,6 +36,7 @@ def load_ruleset(data_dir: Path) -> Ruleset:
         countries=json.loads(raw["country_chart.json"])["countries"],
         entities=json.loads(raw["entity_list.json"])["entities"],
         version=meta["version"],
+        ecfr_issue_date=meta["ecfr_issue_date"],
         sources=meta["sources"],
         digest=digest,
     )

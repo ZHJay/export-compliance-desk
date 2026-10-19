@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from weasyprint import HTML
 
-from .rules import Result
+from .rules import Result, Ruleset
 
 TZ = ZoneInfo("Asia/Shanghai")
 DISCLAIMER = "简化子集，仅供演示，不构成法律意见。"
@@ -27,9 +27,13 @@ def report_id(result: Result) -> str:
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:12]
 
 
-def render_html(result: Result, generated_at: datetime) -> str:
+def render_html(rs: Ruleset, result: Result, generated_at: datetime) -> str:
     return _env.get_template("report.html").render(
         r=result,
+        item=rs.items.get(result.input.eccn),  # None for EAR99
+        country_name=rs.countries[result.input.country]["name_zh"],
+        ecfr_issue_date=rs.ecfr_issue_date,
+        sources=rs.sources,
         report_id=report_id(result),
         generated_at=generated_at.astimezone(TZ).strftime("%Y-%m-%d %H:%M:%S"),
         decision_label=DECISION_LABEL[result.decision],
@@ -39,5 +43,5 @@ def render_html(result: Result, generated_at: datetime) -> str:
     )
 
 
-def render_pdf(result: Result, generated_at: datetime) -> bytes:
-    return HTML(string=render_html(result, generated_at)).write_pdf()
+def render_pdf(rs: Ruleset, result: Result, generated_at: datetime) -> bytes:
+    return HTML(string=render_html(rs, result, generated_at)).write_pdf()

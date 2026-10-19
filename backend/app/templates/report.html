@@ -17,6 +17,10 @@
   table { width: 100%; border-collapse: collapse; table-layout: fixed; }
   th, td { border: 1px solid #bbb; padding: 4pt 6pt; text-align: left; vertical-align: top; word-break: break-all; }
   th { background: #f0f0f0; }
+  .tail { break-inside: avoid; }
+  .en { color: #666; font-size: 9pt; }
+  .sources { padding-left: 16pt; color: #555; font-size: 9pt; }
+  .sources li { word-break: break-all; }
   .disclaimer { margin-top: 20pt; padding-top: 8pt; border-top: 1px solid #bbb; color: #555; font-size: 9.5pt; }
 </style>
 </head>
@@ -26,11 +30,12 @@
   <div>报告编号：{{ report_id }}</div>
   <div>生成时间（Asia/Shanghai）：{{ generated_at }}</div>
   <div>规则集版本（数据整理日期）：{{ r.ruleset_version }} · 摘要 {{ r.ruleset_digest }}</div>
+  <div>依据 eCFR 版本日期：{{ ecfr_issue_date }}</div>
 </div>
 <h2>查询输入</h2>
 <table>
-  <tr><th style="width:25%">ECCN</th><td>{{ r.input.eccn }}</td></tr>
-  <tr><th>目的国</th><td>{{ r.input.country }}</td></tr>
+  <tr><th style="width:25%">ECCN</th><td>{{ r.input.eccn }} {% if item %}{{ item.title_zh }}<div class="en">{{ item.title }}</div>{% else %}不在 CCL 上{% endif %}</td></tr>
+  <tr><th>目的国</th><td>{{ country_name }}（{{ r.input.country }}）</td></tr>
   <tr><th>最终用户</th><td>{{ r.input.end_user or "（未填写）" }}</td></tr>
 </table>
 <h2>结论</h2>
@@ -48,6 +53,12 @@
   </tr>
   {% endfor %}
 </table>
+<div class="tail">
+<h2>数据来源</h2>
+<ol class="sources">
+  {% for s in sources %}<li>{{ s }}</li>{% endfor %}
+</ol>
 <div class="disclaimer">{{ disclaimer }}</div>
+</div>
 </body>
 </html>

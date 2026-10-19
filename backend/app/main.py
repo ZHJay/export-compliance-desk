@@ -52,7 +52,7 @@ def report_endpoint(req: CheckRequest) -> Response:
     now = datetime.now(TZ)
     name = f"report-{result.input.eccn}-{result.input.country}-{now:%Y%m%d}.pdf"
     return Response(
-        render_pdf(result, now),
+        render_pdf(RULESET, result, now),
         media_type="application/pdf",
         headers={"Content-Disposition": f'attachment; filename="{name}"'},
     )
