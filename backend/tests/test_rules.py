@@ -218,3 +218,18 @@ def test_real_data_dji_drones_is_flagged():
 
 def test_real_data_chinese_only_is_flagged():
     assert _real_entity("华为技术有限公司").decision == "NEEDS_REVIEW"
+
+
+@pytest.mark.parametrize("end_user", [
+    "Huawei Device Co., Ltd.", "Huawei Japan", "Huawei Cloud", "Megvii Beijing", "Dahua Vision",
+    "Kalashnikov Group", "Iran Airlines", "China Electronics Technology Group",
+])
+def test_real_data_brand_with_extra_words_is_flagged(end_user):
+    assert _real_entity(end_user).decision == "NEEDS_REVIEW"
+
+
+@pytest.mark.parametrize("end_user", [
+    "Tech", "Group", "JSC", "Sony Group", "Alibaba Group", "Time Warner", "Samsung Electronics", "Tokyo Electron",
+])
+def test_real_data_generic_words_not_flagged(end_user):
+    assert _real_entity(end_user).decision == "NLR"

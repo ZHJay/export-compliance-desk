@@ -41,6 +41,9 @@ def load_ruleset(data_dir: Path) -> Ruleset:
 
 
 _SUFFIXES = frozenset(["co", "company", "ltd", "limited", "inc", "incorporated", "corp", "corporation", "llc", "plc", "gmbh"])
+# words too common to identify an entity; dropped only for the partial-overlap check, not for exact/fuzzy
+_GENERIC = frozenset(["tech", "technology", "technologies", "group", "international", "information",
+                      "industry", "industries", "industrial", "jsc", "ojsc", "pjsc", "of", "the"])
 _SEVERITY = {"NLR": 0, "NEEDS_REVIEW": 1, "LICENSE_REQUIRED": 2}
 _CHART_CITE = "15 CFR 738 Supp. 1"
 _ENTITY_CITE = "15 CFR 744 Supp. 4"
@@ -82,8 +85,10 @@ def _latin(s: str) -> str:
     return re.sub(r"[^0-9a-z]", "", normalize_name(s))
 
 
-def _latin_words(s: str) -> set[str]:
-    return {w for w in (re.sub(r"[^0-9a-z]", "", w) for w in _words(s)) if w}
+def _core(s: str) -> tuple[str, set[str]]:
+    """Latin words minus generic ones, joined and as a set: 'Huawei Technologies Co., Ltd.' -> 'huawei'."""
+    words = [w for w in (re.sub(r"[^0-9a-z]", "", w) for w in _words(s)) if w and w not in _GENERIC]
+    return "".join(words), set(words)
 
 
 def search_items(rs: Ruleset, q: str) -> list[dict]:
@@ -129,20 +134,22 @@ def _entity_finding(rs: Ruleset, end_user: str) -> Finding:
     if not key:
         return Finding("entity_list", "NEEDS_REVIEW",
                        "最终用户名称不含可比对的英文字母或数字（实体清单仅有英文名称），无法筛查，需人工复核", _ENTITY_CITE)
-    key_words = _latin_words(end_user)
+    key_core, key_words = _core(end_user)
     best, best_score, partial = None, 0.0, None
     for e in rs.entities:
         for n in [e["name"], *e["aliases"]]:
             cand = _latin(n)
-            short, long = sorted((key, cand), key=len)
+            cand_core, cand_words = _core(n)
+            short, long = sorted((key_core, cand_core), key=len)
+            # compared after dropping generic words, so "Huawei Device" contains "Huawei (Technologies)" and "Tech" alone hits nothing;
             # substring needs >= 4 chars; shorter names (DJI, ZTE) count only as a whole word of the other name
-            overlap = (len(short) >= 4 and short in long) or cand in key_words or key in _latin_words(n)
+            overlap = bool(short) and ((len(short) >= 4 and short in long) or cand_core in key_words or key_core in cand_words)
             if partial is None and overlap:
                 partial = e
             score = 1.0 if cand == key else difflib.SequenceMatcher(None, key, cand).ratio()
             if score > best_score:
                 best, best_score = e, score
-    # ponytail: 0.85 为经验阈值，基于字符序列；另有互相包含兜底（≥4 字符按子串，如 Huawei；更短按整词，如 DJI）；误报/漏报需要时换 rapidfuzz token_set_ratio + 人工标注集调参
+    # ponytail: 0.85 为经验阈值，基于字符序列；另有去通用词后的互相包含兜底（≥4 字符按子串，如 Huawei；更短按整词，如 DJI）；通用词表手工维护；误报/漏报需要时换 rapidfuzz token_set_ratio + 人工标注集调参
     if best and best_score >= 0.85:
         cite = f"15 CFR 744.11；15 CFR 744 Supp. 4（{best['fr_citation']}）"
         if best_score == 1.0:
