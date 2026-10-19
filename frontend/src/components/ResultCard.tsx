@@ -35,9 +35,9 @@ export function ResultCard({ result }: { result: CheckResult }) {
 
   return (
     <section className="space-y-3 rounded border border-gray-200 p-4">
-      <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-600">
-          {eccn} → {country}
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="min-w-0 text-sm text-gray-600 wrap-anywhere">
+          {eccn} → {country} · {end_user ? `最终用户：${end_user}` : "未填最终用户"}
         </span>
         <Badge d={result.decision} big />
       </div>

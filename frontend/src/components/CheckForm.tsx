@@ -2,17 +2,26 @@ import { useEffect, useRef, useState } from "react";
 import { ApiError, check, getCountries } from "../api";
 import type { CheckResult, Country, Item } from "../types";
 
-export function CheckForm(props: { item: Item | null; onResult: (r: CheckResult) => void }) {
+export function CheckForm(props: { item: Item | null; onResult: (r: CheckResult | null) => void }) {
   const { item, onResult } = props;
   const [countries, setCountries] = useState<Country[]>([]);
   const [country, setCountry] = useState("");
   const [endUser, setEndUser] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const currentEccn = useRef(item?.eccn);
+  // bumped on every input change: a response is shown only if no input changed since it was requested
+  const inputVersion = useRef(0);
   useEffect(() => {
-    currentEccn.current = item?.eccn;
+    inputVersion.current++;
   }, [item]);
+
+  function edit(set: (v: string) => void) {
+    return (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      set(e.target.value);
+      inputVersion.current++;
+      onResult(null); // an old result must not sit under inputs it wasn't computed from
+    };
+  }
 
   useEffect(() => {
     getCountries()
@@ -23,13 +32,13 @@ export function CheckForm(props: { item: Item | null; onResult: (r: CheckResult)
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!item || !country) return;
+    const version = inputVersion.current;
     setBusy(true);
     setError(null);
     try {
       const eu = endUser.trim();
       const r = await check({ eccn: item.eccn, country, end_user: eu || undefined });
-      // drop a late response if the user switched items while it was in flight
-      if (r.input.eccn === currentEccn.current) onResult(r);
+      if (version === inputVersion.current) onResult(r);
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "判定失败");
     } finally {
@@ -56,7 +65,7 @@ export function CheckForm(props: { item: Item | null; onResult: (r: CheckResult)
         <select
           id="country"
           value={country}
-          onChange={(e) => setCountry(e.target.value)}
+          onChange={edit(setCountry)}
           className="w-full rounded border border-gray-300 px-3 py-2"
         >
           <option value="">请选择国家/地区</option>
@@ -76,7 +85,7 @@ export function CheckForm(props: { item: Item | null; onResult: (r: CheckResult)
           id="end-user"
           value={endUser}
           maxLength={200}
-          onChange={(e) => setEndUser(e.target.value)}
+          onChange={edit(setEndUser)}
           className="w-full rounded border border-gray-300 px-3 py-2"
         />
       </div>
